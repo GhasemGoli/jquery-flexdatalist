@@ -686,7 +686,7 @@ jQuery.fn.flexdatalist = function (_option, _value) {
                         _this.fvalue.remove($(this).parent());
                     });
 
-                    // @FIXED" append new behaviour after user create new value
+                    // @FIX: append new behaviour after user create new value
                     var isNewValue = true;
                     for(var i=0;i<datalistTag[0].options.length;i++)
                         if(datalistTag[0].options[i].value == val)
