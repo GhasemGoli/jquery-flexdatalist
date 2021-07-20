@@ -686,17 +686,17 @@ jQuery.fn.flexdatalist = function (_option, _value) {
                         _this.fvalue.remove($(this).parent());
                     });
 
-                    // @FIX: append new behaviour after user create new value
+                    // @FIX: append new data & fire new event after user create new value
                     var isNewValue = true;
-                    for(var i=0;i<datalistTag[0].options.length;i++)
-                        if(datalistTag[0].options[i].value == val)
+                    for(var i=0;i<options.data.length;i++)
+                        if(options.data.value == val)
                         {
                             isNewValue=false;
                             break;
                         }
                     
                     var datalistName = $this.attr('list');
-                    if(isNewValue && datalistName != '')
+                    if(isNewValue && datalistName != '' && $('#' + datalistName + ' option[value="' + val + '"]').length == 0)
                         $('#' + datalistName).append("<option value='" + val + "'>" + txt + "</option>");
                     if(isNewValue)
                         $this.trigger('create:flexdatalist.value', {value:val, text:txt});
